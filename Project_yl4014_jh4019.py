@@ -40,7 +40,7 @@ def get_kid_safe(lyrics):
     level2_word = ['kill','violent','violence','blood','bloody','bomb','die','dead',
                   'suicide','shit','fuck','hell','ass','asshole','fucker','motherfucker',
                   'bitch','goddamn','damn','whore','pussy','nigga','bastard','douchebag',
-                  'cock','slut','douche','crap','dick','fag','filthy','masturbate',
+                  'cock','slut','douche','crap','dick','fag','filthy','masturbate','cunt',
                   'masturbating','sex','fucked','horny',"fuckin'",'porn','pornstar','sugardaddy',
                   'sugarbaby','gun','alcoholic','alcohol','drug','weed','smoke','smoking',
                   'drugging','booty','porno'
