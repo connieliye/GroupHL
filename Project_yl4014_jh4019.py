@@ -75,7 +75,7 @@ def get_love(lyrics):
 
 #char_dic = {}
 
-!pip install vaderSentiment
+#pip install vaderSentiment
 from vaderSentiment.vaderSentiment import SentimentIntensityAnalyzer
 analyser = SentimentIntensityAnalyzer()
 
@@ -85,7 +85,27 @@ def get_mood(lyrics):
 
 get_mood("""I'm watching TV a Saturday night """)
 
+#lexicalrichness
+from nltk.corpus import stopwords
 
+def get_complexity(lyrics):
+    lyrics_split = lyrics.split()
+    all_word = ''
+    num_words = 0
+    raw_text = ""
+    for sentence in lyrics_split:
+        this_sentence = sentence.decode('utf-8')
+        raw_text += this_sentence
+        
+    words = raw_text.split("")
+    filtered_words = [word for word in words if word not in
+                     stopwords.words('english') and len(word) > 1
+                     and word not in ['na','la']] #remove the stopwords
+    
+    a = len(set(filtered_words))
+    b = len(words)
+    score = (a/float(b))*100
+    return score
 
     
 
