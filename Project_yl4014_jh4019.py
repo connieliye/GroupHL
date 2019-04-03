@@ -5,7 +5,7 @@ Created on Mon Apr  1 13:41:17 2019
 
 @author: yeli
 """
-
+#1000~Champian-Fulton~Easy-to-Love.txt
 import os
 dir = '/Users/yeli/Documents/Columbia MS&E/Spring 2019/IEOR4501_Tools For Analytics/Project/Lyrics'
 lyrics_dic = {}
@@ -17,15 +17,15 @@ for file in os.listdir(dir):
     lyrics.close()
 
 def get_id(file):
-    return file[0:3]
+    return file[0:file.find('~')]
 
 def get_artist(file):
-    end = file.find('~', 4)
-    artist = file[4 : end]
+    end = file.find('~', file.find('~') + 1)
+    artist = file[file.find('~') + 1 : end]
     return artist.replace('-' , ' ')
 
 def get_title(file):
-    start = file.find('~', 4) + 1
+    start = file.find('~', file.find('~') + 1) + 1
     end = file.find('.')
     title = file[start : end]
     return title.replace('-' , ' ')
