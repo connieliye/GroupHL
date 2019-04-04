@@ -54,6 +54,27 @@ def get_length(lyrics):
 
 #char_dic = {}
 
+#pip install vaderSentiment
+from vaderSentiment.vaderSentiment import SentimentIntensityAnalyzer
+analyser = SentimentIntensityAnalyzer()
+
+def get_mood(lyrics):
+    snt = analyser.polarity_scores(lyrics)
+    print("{:-<40}{}".format(lyrics, str(snt)))
+
+get_mood("""I fucked up""")
+
+#lexicalrichness
+#pip install lexicalrichness
+#pip install textblob
+from lexicalrichness import LexicalRichness
+
+def get_complexity(lyrics):
+    score = LexicalRichness(lyrics)
+    return 1-score.ttr
+get_complexity("""Jiannuo""")
+
+
 
     
 
