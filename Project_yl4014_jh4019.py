@@ -5,10 +5,11 @@ Created on Mon Apr  1 13:41:17 2019
 
 @author: yeli
 """
-#1000~Champian-Fulton~Easy-to-Love.txt
+
 import os
-from profanity_check import predict, predict_prob
+from profanity_check import predict_prob
 from googletrans import Translator
+from vaderSentiment.vaderSentiment import SentimentIntensityAnalyzer
 
 dir = '/Users/yeli/Documents/Columbia MS&E/Spring 2019/IEOR4501_Tools For Analytics/Project/Lyrics'
 lyrics_dic = {}
@@ -50,19 +51,14 @@ def get_love(lyrics):
     return sum(count_list)
 
 def get_length(lyrics):
-    return 1
+    return len(lyrics.split())
 
-#char_dic = {}
 
-#pip install vaderSentiment
-from vaderSentiment.vaderSentiment import SentimentIntensityAnalyzer
 analyser = SentimentIntensityAnalyzer()
-
 def get_mood(lyrics):
     snt = analyser.polarity_scores(lyrics)
     print("{:-<40}{}".format(lyrics, str(snt)))
 
-get_mood("""I fucked up""")
 
 #lexicalrichness
 #pip install lexicalrichness
@@ -72,8 +68,8 @@ from lexicalrichness import LexicalRichness
 def get_complexity(lyrics):
     score = LexicalRichness(lyrics)
     return 1-score.ttr
-get_complexity("""Jiannuo""")
 
+#char_dic = {}
 
 
     
