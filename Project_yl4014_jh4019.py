@@ -8,8 +8,8 @@ Created on Mon Apr  1 13:41:17 2019
 
 import os
 from profanity_check import predict_prob
-from googletrans import Translator
 from vaderSentiment.vaderSentiment import SentimentIntensityAnalyzer
+from lexicalrichness import LexicalRichness
 
 dir = '/Users/yeli/Documents/Columbia MS&E/Spring 2019/IEOR4501_Tools For Analytics/Project/Lyrics'
 lyrics_dic = {}
@@ -17,8 +17,7 @@ lyrics_dic = {}
 for file in os.listdir(dir):
     path = dir + '/' + file
     lyrics = open(path,'r')
-    translated_lyrics = Translator().translate(lyrics.read()).text
-    lyrics_dic.update({file : translated_lyrics})
+    lyrics_dic.update({file : lyrics.read()})
     lyrics.close()
 
 def get_id(file):
@@ -37,46 +36,69 @@ def get_title(file):
 
 # utilize profanity_check package to get a score for each song
 def get_kid_safe(lyrics):
-    return 1 - predict_prob([lyrics])
+    return 1 - predict_prob([lyrics])[0]
 
 
-# score in absolute number is given based on the number of love related words mentioned
-# list of words include: love, loving, like, admire, adore
+# return absolute score, need to be normalized
 def get_love(lyrics):
     lyrics_split = lyrics.split()
     count_list = []
-    love_word = ['love','loving','like','admire','adore', 'lover']
+    love_word = ['love','loving','loved','like','admire','adore', 'lover', 'dear', 
+                 'darlin', 'darling', 'sweet','kiss','boy','girl','baby','lovely',
+                 'sweetheart','hug','good','best','hot','pretty','loves']
     for word in love_word:
         count_list.append(lyrics_split.count(word))
     return sum(count_list)
 
+#return absolute score, need to be normalized
 def get_length(lyrics):
     return len(lyrics.split())
 
 
-analyser = SentimentIntensityAnalyzer()
 def get_mood(lyrics):
-    snt = analyser.polarity_scores(lyrics)
-    print("{:-<40}{}".format(lyrics, str(snt)))
-
+    analyzer = SentimentIntensityAnalyzer()
+    snt = analyzer.polarity_scores(lyrics)
+    return snt['compound']
 
 #lexicalrichness
 #pip install lexicalrichness
 #pip install textblob
-from lexicalrichness import LexicalRichness
 
 def get_complexity(lyrics):
     score = LexicalRichness(lyrics)
     return 1-score.ttr
 
-#char_dic = {}
+
+kid_safe_dic = {}
+for key, val in lyrics_dic.items():
+    kid_safe_dic.update({key: get_kid_safe(val)})
+
+love_list = []
+for val in lyrics_dic.values():
+    love_list.append(get_love(val))
+max_love = max(love_list)
+love_dic = {}
+for key, val in lyrics_dic.items():
+    love_dic.update({key: get_love(val)/max_love})
+        
+length_list = []
+for val in lyrics_dic.values():
+    length_list.append(get_length(val))
+max_length = max(length_list)
+length_dic = {}
+for key, val in lyrics_dic.items():
+    length_dic.update({key: get_length(val)/max_length})
+
+mood_dic = {}
+for key, val in lyrics_dic.items():
+    mood_dic.update({key: get_mood(val)}) 
+    
+complexity_dic = {}
+for key, val in lyrics_dic.items():
+    complexity_dic.update({key: get_complexity(val)}) 
 
 
     
-
     
     
-
-
-#file = open('/Users/yeli/Documents/Columbia MS&E/Spring 2019/IEOR4501_Tools For Analytics/Project/Lyrics/1000~Champian-Fulton~Easy-to-Love.txt', 'r')
-#print(type(file.read()))
+    
