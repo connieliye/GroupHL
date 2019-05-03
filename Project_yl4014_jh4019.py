@@ -109,6 +109,24 @@ title_dic ={}
 for key, val in lyrics_dic.items():
     title_dic.update({key:get_title(key)})
 print(title_dic)
-    
+
+import json 
+result = dict()
+result_list = []
+for k in love_dic.keys():
+    temp_dict = dict()
+    #get value by key
+    temp_dict['id'] = id_dic[k]
+    temp_dict['artist'] = artist_dic[k]
+    temp_dict['title'] = title_dic[k]
+    temp_dict['kid_safe'] = kid_safe_dic[k]
+    temp_dict['love'] = love_dic[k]
+    temp_dict['length'] = length_dic[k]
+    temp_dict['mood'] = mood_dic[k]
+    temp_dict['complexity'] = complexity_dic[k]
+    result_list.append(temp_dict)
+
+result['characterization'] = result_list
+#print(result_list)
     
     
