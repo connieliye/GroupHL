@@ -132,4 +132,4 @@ result['characterization'] = result_list
 
 #convert to json file
 json_string = json.dumps(result_list)
-    
+print(json_string)
