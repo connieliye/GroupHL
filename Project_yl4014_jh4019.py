@@ -97,8 +97,18 @@ for key, val in lyrics_dic.items():
 complexity_dic = {}
 for key, val in lyrics_dic.items():
     complexity_dic.update({key: np.around(get_complexity(val),3)}) 
+id_dic ={}
+for key, val in lyrics_dic.items():
+    id_dic.update({key:get_id(key)})
 
-    
+artist_dic ={}
+for key, val in lyrics_dic.items():
+    artist_dic.update({key:get_artist(key)})
+
+title_dic ={}
+for key, val in lyrics_dic.items():
+    title_dic.update({key:get_title(key)})
+print(title_dic)
     
     
     
