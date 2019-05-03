@@ -71,7 +71,8 @@ def get_complexity(lyrics):
 
 kid_safe_dic = {}
 for key, val in lyrics_dic.items():
-    kid_safe_dic.update({key: get_kid_safe(val)})
+    kid_safe_dic.update({key: np.around(get_kid_safe(val),3)})
+  
 
 love_list = []
 for val in lyrics_dic.values():
@@ -79,7 +80,7 @@ for val in lyrics_dic.values():
 max_love = max(love_list)
 love_dic = {}
 for key, val in lyrics_dic.items():
-    love_dic.update({key: get_love(val)/max_love})
+    love_dic.update({key: np.around((get_love(val)/max_love),3)})
         
 length_list = []
 for val in lyrics_dic.values():
@@ -87,16 +88,15 @@ for val in lyrics_dic.values():
 max_length = max(length_list)
 length_dic = {}
 for key, val in lyrics_dic.items():
-    length_dic.update({key: get_length(val)/max_length})
+    length_dic.update({key: np.around((get_length(val)/max_length),3)})
 
 mood_dic = {}
 for key, val in lyrics_dic.items():
-    mood_dic.update({key: get_mood(val)}) 
+    mood_dic.update({key: np.around(get_mood(val),3)}) 
     
 complexity_dic = {}
 for key, val in lyrics_dic.items():
-    complexity_dic.update({key: get_complexity(val)}) 
-
+    complexity_dic.update({key: np.around(get_complexity(val),3)}) 
 
     
     
