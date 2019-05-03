@@ -71,7 +71,7 @@ def get_complexity(lyrics):
 
 kid_safe_dic = {}
 for key, val in lyrics_dic.items():
-    kid_safe_dic.update({key: np.around(get_kid_safe(val),3)})
+    kid_safe_dic.update({key: np.asscalar(np.around(get_kid_safe(val),3))})
   
 
 love_list = []
@@ -97,6 +97,7 @@ for key, val in lyrics_dic.items():
 complexity_dic = {}
 for key, val in lyrics_dic.items():
     complexity_dic.update({key: np.around(get_complexity(val),3)}) 
+   
 id_dic ={}
 for key, val in lyrics_dic.items():
     id_dic.update({key:get_id(key)})
@@ -128,5 +129,7 @@ for k in love_dic.keys():
 
 result['characterization'] = result_list
 #print(result_list)
-    
+
+#convert to json file
+json_string = json.dumps(result_list)
     
