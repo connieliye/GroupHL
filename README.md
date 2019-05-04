@@ -28,6 +28,7 @@ First thing first, import all packages required for this text analysis as follow
 import os
 from profanity_check import predict_prob
 from vaderSentiment.vaderSentiment import SentimentIntensityAnalyzer
+from textblob import TextBlob
 from lexicalrichness import LexicalRichness
 import numpy as np 
 
