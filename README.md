@@ -20,7 +20,7 @@ The team analyzed all lyrics and assigned scores to those lyrics based on 5 metr
 
 - complexity: What's the lexical richness of this song? 0: very simple song; 1: very complex song 
 
-## **Data Processing**
+## Data Processing
 
 First thing first, import all packages required for this text analysis as followings:
 
@@ -40,6 +40,7 @@ All lyrics data was given and downloaded from coursework in a folder called "lyr
 > id-singer name-song title.txt.
 
 To load the data from the folder, use 
+
 '''
 
 for file in os.listdir(dir):
@@ -55,7 +56,7 @@ To extract each song's information, use three functions we created
 2. get_artist: to extract singer's name 
 3. get_title: to extract song's title
 
-###### **Defining dimensions
+###### Defining dimensions
 
 In order to get those 5 dimensions to measure those lyrics, we created 5 functions, which are:
 
@@ -65,7 +66,7 @@ In order to get those 5 dimensions to measure those lyrics, we created 5 functio
 4. get_mood: we use 'vaderSentiment.vaderSentiment' package to check the mood of the song.
 5: get_complexity: we use 'lexicalrichness' package to check the vocabulary level of the song. 
 
-###### **Assign Scores**
+###### Assign Scores
 
 Since socore for all metrics ranging from 0 to 1. We need to normalize scores we return at the end after using those functions. 
 
@@ -76,7 +77,7 @@ Since socore for all metrics ranging from 0 to 1. We need to normalize scores we
 
 In the last step, we combine all results in a list named 'result_list' and convert it into json file.
 
-## **Contact us**
+## Contact us
 If you have any questions, please reach out to us by the following contact information: 
 
 Ye Connie Li: yl4014@columbia.edu
