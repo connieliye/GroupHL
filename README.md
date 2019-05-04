@@ -2,7 +2,7 @@
 
 Group Section: 7
 Group Members: 
-- Ye Connie Li(yl4014)
+- Connie Ye Li(yl4014)
 - Jiannuo Hu (jh4019)
 
 ## **Intro** 
@@ -80,7 +80,7 @@ In the last step, we combine all results in a list named `result_list` and conve
 ## Contact us
 If you have any questions, please reach out to us by the following contact information: 
 
-Ye Connie Li: yl4014@columbia.edu
+Connie Ye Li: yl4014@columbia.edu
 Jiannuo Hu: jh4019@columbia.edu 
 
 
