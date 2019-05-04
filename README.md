@@ -1,10 +1,13 @@
 **My project：Analyze lyrics of 1000 songs using Python**
-Group Name: FOX
-Group Members: Ye Connie Li(yl4014)
-               Jiannuo Hu (jh4019)
+
+Group Section: 7
+Group Members: 
+- Ye Connie Li(yl4014)
+- Jiannuo Hu (jh4019)
 
 **Intro** 
-The objective of this project is to test music lyrics of 1000 songs that are stored in a folder called "Lyrics". The team analyzed all lyrics and assigned scores to those lyrics based on 5 metrics: 
+The objective of this project is to test music lyrics of 1000 songs that are stored in a folder called "Lyrics". 
+The team analyzed all lyrics and assigned scores to those lyrics based on 5 metrics: 
 
 -kid_safe: If the song is safe for kids to listen to? 0: not kid safe; 1: very kid safe
 -love: Whether the song is related to love or not? 0: not a love song; 1: a love song
