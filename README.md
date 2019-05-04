@@ -51,19 +51,19 @@ for file in os.listdir(dir):
 ```
     
 To extract each song's information, use three functions we created
-1. get_id: to extract id from the file's title
-2. get_artist: to extract singer's name 
-3. get_title: to extract song's title
+1. `get_id`: to extract id from the file's title
+2. `get_artist`: to extract singer's name 
+3. `get_title`: to extract song's title
 
 ###### Defining dimensions
 
 In order to get those 5 dimensions to measure those lyrics, we created 5 functions, which are:
 
-1. get_kid_safe: we utilized 'profanity_check' package to get a score for each song.
-2. get_love: we compile a list of `love` key words (e.g. 'love','loving','loved','like','admire','adore') and count how many                  love key words that the song has.
-3. get_length: we use `len(lyrics.split())` to count the word number of the song.
-4. get_mood: we use `vaderSentiment.vaderSentiment` package to check the mood of the song.
-5: get_complexity: we use `lexicalrichness` package to check the vocabulary level of the song. 
+1. `get_kid_safe`: we utilized 'profanity_check' package to get a score for each song.
+2. `get_love`: we compile a list of `love` key words (e.g. 'love','loving','loved','like','admire','adore') and count how many                  love key words that the song has.
+3. `get_length`: we use `len(lyrics.split())` to count the word number of the song.
+4. `get_mood`: we use `vaderSentiment.vaderSentiment` package to check the mood of the song.
+5: `get_complexity`: we use `lexicalrichness` package to check the vocabulary level of the song. 
 
 ###### Assign Scores
 
