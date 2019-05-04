@@ -24,14 +24,14 @@ The team analyzed all lyrics and assigned scores to those lyrics based on 5 metr
 
 First thing first, import all packages required for this text analysis as followings:
 
-'''
+```
 import os
 from profanity_check import predict_prob
 from vaderSentiment.vaderSentiment import SentimentIntensityAnalyzer
 from lexicalrichness import LexicalRichness
 import numpy as np 
 
-'''
+```
 
 ###### Loading the data
 All lyrics data was given and downloaded from coursework in a folder called "lyrics". The folder contains
@@ -41,15 +41,14 @@ All lyrics data was given and downloaded from coursework in a folder called "lyr
 
 To load the data from the folder, use 
 
-'''
-
+```
 for file in os.listdir(dir):
     path = dir + '/' + file
     lyrics = open(path,'r')
     lyrics_dic.update({file : lyrics.read()})
     lyrics.close()
     
-'''
+```
     
 To extract each song's information, use three functions we created
 1. get_id: to extract id from the file's title
@@ -61,10 +60,10 @@ To extract each song's information, use three functions we created
 In order to get those 5 dimensions to measure those lyrics, we created 5 functions, which are:
 
 1. get_kid_safe: we utilized 'profanity_check' package to get a score for each song.
-2. get_love: we compile a list of "love" key words (e.g. 'love','loving','loved','like','admire','adore') and count how many                  love key words that the song has.
-3. get_length: we use 'len(lyrics.split())' to count the word number of the song.
-4. get_mood: we use 'vaderSentiment.vaderSentiment' package to check the mood of the song.
-5: get_complexity: we use 'lexicalrichness' package to check the vocabulary level of the song. 
+2. get_love: we compile a list of `love` key words (e.g. 'love','loving','loved','like','admire','adore') and count how many                  love key words that the song has.
+3. get_length: we use `len(lyrics.split())` to count the word number of the song.
+4. get_mood: we use `vaderSentiment.vaderSentiment` package to check the mood of the song.
+5: get_complexity: we use `lexicalrichness` package to check the vocabulary level of the song. 
 
 ###### Assign Scores
 
@@ -72,10 +71,10 @@ Since socore for all metrics ranging from 0 to 1. We need to normalize scores we
 
 - For kid_safe, profanity_check automatically returns scores in [0,1]. 
 - For love, we find the maximum number of "love" key word and use the number of "love" key words of each song / max(love key word) to normalize the score. 
-- For length, we find the longest song and return 'max_length' which is the word number of the longest song. Then we use word number of each song / max(length) to normal the socore of length metric.
+- For length, we find the longest song and return `max_length` which is the word number of the longest song. Then we use word number of each song / max(length) to normal the socore of length metric.
 - For mood & complexity, python packages automatically return scores in [0,1].
 
-In the last step, we combine all results in a list named 'result_list' and convert it into json file.
+In the last step, we combine all results in a list named `result_list` and convert it into json file.
 
 ## Contact us
 If you have any questions, please reach out to us by the following contact information: 
