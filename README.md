@@ -1,4 +1,4 @@
-# **My project：Analyze lyrics of 1000 songs using Python**
+# **Project：Analyze lyrics of 1000 songs using Python**
 
 Group Section: 7
 Group Members: 
