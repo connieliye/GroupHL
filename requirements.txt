@@ -1,1 +1,7 @@
 Packages that need to be installed upfront are: 
+
+import os
+from profanity_check import predict_prob
+from vaderSentiment.vaderSentiment import SentimentIntensityAnalyzer
+from lexicalrichness import LexicalRichness
+import numpy as np 
