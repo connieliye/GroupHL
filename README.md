@@ -14,7 +14,7 @@ The team analyzed all lyrics and assigned scores to those lyrics based on 5 metr
 
 - love: Whether the song is related to love or not? 0: not a love song; 1: a love song
 
-- mood: Whether the song is in positive mood or sad mood? 0: a dark song; 1: a happt song 
+- mood: Whether the song is in positive mood or sad mood? 0: a dark song; 1: a happy song 
 
 - length: This metric indicates how long the song's lyrics is compared with other songs. 0: very short; 1: very long 
 
