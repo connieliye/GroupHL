@@ -44,13 +44,14 @@ def lyrics_analysis(path):
     # return absolute score, need to be normalized
     def get_love(lyrics):
         lyrics_split = lyrics.split()
+        lyrics_split_lower = [item.lower() for item in lyrics_split]
         count_list = []
         love_word = ['love','loving','loved','like','admire','adore', 'lover', 'dear', 
-                     'darlin', 'darling', 'sweet','kiss','boy','girl','baby','lovely',
-                     'sweetheart','hug','good','best','hot','pretty','loves']
+                 'darlin', 'darling', 'sweet','kiss','boy','girl','baby','lovely',
+                 'sweetheart','hug','good','best','hot','pretty','loves']
         for word in love_word:
-            count_list.append(lyrics_split.count(word))
-        return sum(count_list)
+            count_list.append(lyrics_split_lower.count(word))
+            return sum(count_list)
     
     #return absolute score, need to be normalized
     def get_length(lyrics):
