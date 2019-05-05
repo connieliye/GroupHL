@@ -1,12 +1,9 @@
 Packages that need to be installed upfront are: 
 
-import os
-from profanity_check import predict_prob
-from vaderSentiment.vaderSentiment import SentimentIntensityAnalyzer
-from textblob import TextBlob
-from lexicalrichness import LexicalRichness
-import numpy as np 
-
+profanity_check 
+vaderSentiment
+textblob
+lexicalrichness
 
 Sample instruction to install packages on your terminal
 $ pip install -U textblob
